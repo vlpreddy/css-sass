@@ -1,0 +1,45 @@
+$color-primary: orange;
+$color-secondary:green;
+$color-tertiary:royalblue;
+
+$font-lg:40px;
+$font-md:30px;
+$font-sm:20px;
+
+//nesting
+.nav {
+    background-color: $color-primary;
+
+    ul li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: $font-sm;
+        color: $color-secondary;
+
+        &:hover {
+            color: royalblue
+        }
+    }
+
+}
+
+
+//mixin 
+@mixin headingStyles($fontSize){
+    font-size:$fontSize;
+    color: $color-secondary;
+    text-align: center;
+}
+
+.banner h1 {
+    @include headingStyles($font-lg);
+    
+}
+
+.footer h3 {
+    @include headingStyles($font-md);
+
+}
