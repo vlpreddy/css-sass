@@ -1,20 +1,37 @@
+.footer h3 {
+  font-style: italic;
+  border: 3px solid blue; }
+
 .nav {
-  background-color: orange; }
+  /*  Lighten, darken are the inbuilt functions where they lighten and darken the colors, usually used for mouseovers */
+  /*
+    transparentize is another function where we can change opacity of the element,. here .6 will transparent the div to 60%
+    */
+  /* mix is another function where it will mix two colors given inside, the third arguements effects the first color blue, which means it will take 10% of first color and mix with second color. */
+  background-color: #00731a; }
   .nav ul li {
     list-style: none; }
   .nav a {
     text-decoration: none;
     font-size: 20px;
-    color: green; }
+    color: gray; }
     .nav a:hover {
       color: royalblue; }
 
-.banner h1 {
+/* placeholders,  these place holders are pretty usefull if we are not using the class itself like class"=heading" 
+
+here we used % instead of . which means these properties are simply going to use by extending classes which are banner h1, footer h3 but the class it self not going to present in main.css
+*/
+.banner h1, .footer h3 {
+  color: orange;
   font-size: 40px;
-  color: green;
+  background-color: gray;
   text-align: center; }
 
-.footer h3 {
-  font-size: 30px;
-  color: green;
-  text-align: center; }
+.banner h1 {
+  /* to inherit all the properties we can use extend like following 
+    
+    @extend cannot be used in combination selectors(@extend .banner h1) 
+    */ }
+  .banner h1:hover {
+    background-color: green; }

@@ -1,8 +1,7 @@
 //https://sass-lang.com/documentation/
 //please refer above link for more functions
 
-@import "test";
- 
+
 $color-primary: orange;
 $color-secondary:gray;
 $color-tertiary:royalblue;
@@ -35,31 +34,42 @@ $font-sm:20px;
 
         &:hover {
             color: royalblue
-        } 
+        }
     }
 
-} 
+}
 
-/* placeholders,  these place holders are pretty usefull if we are not using the class itself like class"=heading" 
 
-here we used % instead of . which means these properties are simply going to use by extending classes which are banner h1, footer h3 but the class it self not going to present in main.css
-*/
-
-%heading{
+.heading{
     color: $color-primary;
     font-size:$font-lg;
     background-color:$color-secondary;
     text-align: center;
 }
 
+/* write functions and call them where ever you needed, function can be used to do calculations e.t.c 
 
+here if i give default value for size it will apply only if the calling function does not provide any arguement and example below is .footer p
+*/
+
+@function fontSize($size:25px){
+    @return $size*2;
+}
+
+.banner p{
+    font-size: fontSize($font-sm);
+}
+
+.footer p{
+    font-size: fontSize();
+}
 
 .banner h1 {
     /* to inherit all the properties we can use extend like following 
     
     @extend cannot be used in combination selectors(@extend .banner h1) 
     */
-    @extend %heading;
+    @extend .heading;
     
     &:hover{
         background-color:green;
@@ -68,6 +78,6 @@ here we used % instead of . which means these properties are simply going to use
 } 
 
 .footer h3 {
-       @extend %heading;
+       @extend .heading;
     
 }

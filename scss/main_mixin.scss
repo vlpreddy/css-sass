@@ -1,0 +1,56 @@
+$color-primary: orange;
+$color-secondary:green;
+$color-tertiary:royalblue;
+
+$font-lg:40px;
+$font-md:30px;
+$font-sm:20px;
+
+//nesting
+.nav {
+    background-color: $color-primary;
+
+    ul li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: $font-sm;
+        color: $color-secondary;
+
+        &:hover {
+            color: royalblue
+        }
+    }
+
+}
+
+/* here we are trying to send multiple parameters, that is the reason we are using param variable with three dots which is mandatory, here the css option transition is needed two values to get the transition effect to achieve it dynamically we are using $param... as a parameter. here custom-transition is a custom function which we created and calling belwo to achieve it.  */
+
+@mixin custom-transition($param...){
+    transition: $param;
+}
+
+//mixin 
+@mixin headingStyles($fontSize:50px){
+    font-size:$fontSize;
+    color: $color-secondary;
+    text-align: center;
+}
+
+.banner h1 {
+    /*  @include is obviously including the function valies defined above, you may find with or withour arguements */
+    @include headingStyles($font-lg);
+    
+}
+
+.footer h3 {
+    @include headingStyles;
+    @include custom-transition(color .5s, background-color 1s);
+    &:hover {
+        color:$color-tertiary;
+        background-color: $color-primary;
+    }
+
+}
